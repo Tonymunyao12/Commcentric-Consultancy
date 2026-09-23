@@ -1,0 +1,82 @@
+.hero-art .orbit,
+.hero-art .art-sun {
+  display: none;
+}
+
+.card-emblem {
+  height: 270px;
+  left: 45%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-8deg);
+  width: 270px;
+}
+
+.card-emblem span {
+  display: block;
+  position: absolute;
+}
+
+.emblem-purple {
+  border: 26px solid var(--purple);
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  height: 190px;
+  left: 30px;
+  top: 16px;
+  transform: rotate(-42deg);
+  width: 190px;
+}
+
+.emblem-gold {
+  border: 26px solid var(--gold);
+  border-left-color: transparent;
+  border-radius: 50%;
+  height: 190px;
+  left: 53px;
+  top: 58px;
+  transform: rotate(-42deg);
+  width: 190px;
+}
+
+.emblem-bridge {
+  background: var(--purple);
+  height: 30px;
+  left: 67px;
+  top: 105px;
+  transform: rotate(44deg);
+  width: 130px;
+}
+
+@media (max-width: 760px) {
+  .card-emblem {
+    height: 220px;
+    left: 37%;
+    width: 220px;
+  }
+
+  .emblem-purple,
+  .emblem-gold {
+    height: 155px;
+    width: 155px;
+  }
+
+  .emblem-purple {
+    border-width: 21px;
+    left: 25px;
+    top: 13px;
+  }
+
+  .emblem-gold {
+    border-width: 21px;
+    left: 43px;
+    top: 47px;
+  }
+
+  .emblem-bridge {
+    height: 24px;
+    left: 54px;
+    top: 86px;
+    width: 106px;
+  }
+}

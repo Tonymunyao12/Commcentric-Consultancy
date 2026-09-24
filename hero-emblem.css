@@ -3,13 +3,45 @@
   display: none;
 }
 
+.hero-art {
+  isolation: isolate;
+}
+
+.hero-art::before,
+.hero-art::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero-art::before {
+  width: 360px;
+  height: 360px;
+  right: 8%;
+  top: 8%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.38) 0%, rgba(255, 255, 255, 0) 62%);
+  filter: blur(10px);
+}
+
+.hero-art::after {
+  width: 260px;
+  height: 260px;
+  left: 10%;
+  bottom: 12%;
+  background: radial-gradient(circle, rgba(53, 16, 75, 0.18) 0%, rgba(53, 16, 75, 0) 64%);
+  filter: blur(8px);
+}
+
 .card-emblem {
-  height: 270px;
-  left: 45%;
+  height: 300px;
+  left: 47%;
   position: absolute;
   top: 50%;
-  transform: translate(-50%, -50%) rotate(-8deg);
-  width: 270px;
+  transform: translate(-50%, -50%) rotate(-10deg);
+  width: 300px;
+  filter: drop-shadow(0 24px 50px rgba(33, 8, 46, 0.2));
+  animation: emblemFloat 7s ease-in-out infinite;
 }
 
 .card-emblem span {
@@ -18,65 +50,80 @@
 }
 
 .emblem-purple {
-  border: 26px solid var(--purple);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(53, 16, 75, 0) 72%);
+  border: 26px solid var(--deep-purple);
   border-bottom-color: transparent;
   border-radius: 50%;
-  height: 190px;
-  left: 30px;
-  top: 16px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12), 0 22px 40px rgba(33, 8, 46, 0.24);
+  height: 200px;
+  left: 22px;
+  top: 24px;
   transform: rotate(-42deg);
-  width: 190px;
+  width: 200px;
 }
 
 .emblem-gold {
-  border: 26px solid var(--gold);
+  border: 28px solid rgba(241, 183, 44, 0.98);
   border-left-color: transparent;
   border-radius: 50%;
-  height: 190px;
-  left: 53px;
-  top: 58px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1), 0 18px 30px rgba(53, 16, 75, 0.18);
+  height: 200px;
+  left: 60px;
+  top: 62px;
   transform: rotate(-42deg);
-  width: 190px;
+  width: 200px;
 }
 
 .emblem-bridge {
-  background: var(--purple);
-  height: 30px;
-  left: 67px;
-  top: 105px;
+  background: linear-gradient(135deg, #f7d06a, var(--gold));
+  border-radius: 999px;
+  box-shadow: 0 14px 26px rgba(53, 16, 75, 0.2);
+  height: 34px;
+  left: 72px;
+  top: 112px;
   transform: rotate(44deg);
-  width: 130px;
+  width: 138px;
+}
+
+@keyframes emblemFloat {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) rotate(-10deg) translateY(0px);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(-5deg) translateY(-10px);
+  }
 }
 
 @media (max-width: 760px) {
   .card-emblem {
-    height: 220px;
-    left: 37%;
-    width: 220px;
+    height: 240px;
+    left: 40%;
+    width: 240px;
   }
 
   .emblem-purple,
   .emblem-gold {
-    height: 155px;
-    width: 155px;
+    height: 160px;
+    width: 160px;
   }
 
   .emblem-purple {
     border-width: 21px;
-    left: 25px;
-    top: 13px;
+    left: 18px;
+    top: 18px;
   }
 
   .emblem-gold {
-    border-width: 21px;
-    left: 43px;
-    top: 47px;
+    border-width: 22px;
+    left: 48px;
+    top: 52px;
   }
 
   .emblem-bridge {
-    height: 24px;
-    left: 54px;
-    top: 86px;
-    width: 106px;
+    height: 28px;
+    left: 58px;
+    top: 90px;
+    width: 112px;
   }
 }

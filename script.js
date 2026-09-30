@@ -28,6 +28,29 @@ document.querySelectorAll('.site-nav a').forEach((link) => {
   link.addEventListener('click', () => setMenuOpen(false));
 });
 
+const revealItems = document.querySelectorAll('.reveal');
+
+if ('IntersectionObserver' in window) {
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.16,
+    rootMargin: '0px 0px -8% 0px'
+  });
+
+  revealItems.forEach((item, index) => {
+    item.style.transitionDelay = `${Math.min(index * 80, 220)}ms`;
+    revealObserver.observe(item);
+  });
+} else {
+  revealItems.forEach((item) => item.classList.add('is-visible'));
+}
+
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape' && siteNav.classList.contains('is-open')) {
     closeMenuAndFocus();

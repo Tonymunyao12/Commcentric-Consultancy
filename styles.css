@@ -18,3 +18,11 @@
 @media (prefers-reduced-motion:reduce){
 	.site-nav,.site-nav.is-open,.nav-backdrop{transition:none}
 }
+
+.site-nav a:not(.nav-cta){position:relative}
+.site-nav a:not(.nav-cta)::after{border-bottom:1.5px solid currentColor;border-right:1.5px solid currentColor;content:"";height:6px;left:calc(100% + 7px);opacity:1;position:absolute;top:50%;transform:translateY(-65%) rotate(45deg);transition:transform .18s ease;visibility:hidden;width:6px}
+.site-nav a:not(.nav-cta):hover::after,.site-nav a:not(.nav-cta):focus-visible::after{transform:translateY(-25%) rotate(45deg);visibility:visible}
+
+@media (prefers-reduced-motion:reduce){
+	.site-nav a:not(.nav-cta)::after{transition:none}
+}
